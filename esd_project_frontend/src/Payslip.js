@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Route, Routes, useNavigate} from "react-router-dom";
+import { jsPDF } from 'jspdf';
+import 'jspdf-autotable';
 import './Payslip.css';
 
 function Payslip() {
@@ -31,8 +33,7 @@ function Payslip() {
                     const error = await response.text();
                     setError(error.message);
                     console.log(error);
-                }
-                else {
+                } else {
                     const data = await response.json();
                     setPayslipData(data);
                 }
@@ -46,7 +47,24 @@ function Payslip() {
 
     const generatePDF = () => {
         console.log('Donwload button was clicked');
-    }
+
+        const doc = new jsPDF();
+        doc.setFontSize(18);
+        doc.text(`Payslip for: ${payslipData.first_name} ${payslipData.last_name}`, 10, 30);
+        doc.setFontSize(12);
+        doc.text(`Email: ${payslipData.email}`, 10, 40);
+        doc.text(`Title: ${payslipData.title}, Department: ${payslipData.department}`, 10, 50);
+
+        doc.autoTable({
+            head: [['Payment Date', 'Amount', 'Description', 'Status']],
+            body: [
+                [payslipData.payment_date, `$${payslipData.amount}`, payslipData.description || '', 'Paid'] // Replace null with empty string
+            ],
+            styles: {fontsize: 12},
+            startY: 70,
+        });
+        doc.save('payslip.pdf');
+    };
 
     if (error) {
         return <div>Error: {error}</div>;
