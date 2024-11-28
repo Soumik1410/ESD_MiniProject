@@ -1,0 +1,50 @@
+.payslip-container {
+    padding: 20px;
+    height: 60%;
+    width: 80%;
+}
+
+.employee-info h2 {
+    margin: 0;
+    font-size: 30px;
+}
+
+.employee-info p {
+    font-size: 18px;
+}
+
+.payslip-table {
+    margin-top :5%;
+    margin-bottom: 10%;
+    width: 100%;
+    height: 25%;
+    border-collapse: collapse;
+}
+
+.payslip-table th, .payslip-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.payslip-table th {
+    background-color: #ffffff;
+}
+
+.payslip-table td {
+    background-color: #ffffff;
+}
+
+.download-pdf-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.download-pdf-btn:hover {
+    background-color: #45a049;
+}

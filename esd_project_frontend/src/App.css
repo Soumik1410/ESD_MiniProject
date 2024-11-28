@@ -1,14 +1,12 @@
-/* App.css */
-
 .App {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh; /* Make it fill the viewport */
-  /*background-color: #f4f4f9;*/
-  background-color: #282c34;
+  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(122, 94, 233, 1) 0%, rgba(250, 250, 250, 1) 100%);
+  /*background-color: #282c34;*/
 }
-
+/*
 
 .form-container {
   background-color: white;
@@ -67,3 +65,4 @@ input:focus {
 .submit-btn:hover {
   background-color: #0056b3;
 }
+*/
