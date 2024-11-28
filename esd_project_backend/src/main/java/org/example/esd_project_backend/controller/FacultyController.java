@@ -27,7 +27,8 @@ public class FacultyController {
     }
 
     @GetMapping("/salary_history")
-    public ResponseEntity<?> getSalaryHistory(@RequestBody @Valid FacultySalaryHistoryRequest request) {
+    public ResponseEntity<?> getSalaryHistory(@RequestHeader(value = "x-access-token") String token) {
+        FacultySalaryHistoryRequest request = new FacultySalaryHistoryRequest(token);
         List<FacultySalaryHistoryResponse> obj = facultyService.getFacultySalaryHistory(request);
         if(obj != null)
             return ResponseEntity.ok(obj);
@@ -36,7 +37,8 @@ public class FacultyController {
     }
 
     @GetMapping("/salary_history/{id}")
-    public ResponseEntity<?> getSalary(@PathVariable Long id, @RequestBody @Valid FacultySalaryHistoryRequest request) {
+    public ResponseEntity<?> getSalary(@PathVariable Long id, @RequestHeader(value = "x-access-token") String token) {
+        FacultySalaryHistoryRequest request = new FacultySalaryHistoryRequest(token);
         FacultySalaryResponse obj = facultyService.getFacultySalary(request, id);
         if(obj != null)
             return ResponseEntity.ok(obj);
