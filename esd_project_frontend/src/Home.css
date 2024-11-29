@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%; /* Make it fill the viewport */
+    height: 100%;
     width: 100%;
     /*background-color: #f4f4f9;*/
     background-color: #282c34;

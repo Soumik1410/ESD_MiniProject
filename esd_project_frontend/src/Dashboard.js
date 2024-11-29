@@ -44,7 +44,7 @@ function Dashboard() {
         fetchSalaryHistory();
     }, []);
 
-    const handleActionButtonClick = (id) => {
+    const handleButtonClick = (id) => {
         console.log(`Button clicked for salary record ID: ${id}`);
         localStorage.setItem('selectedSalaryId', id);
         navigate(`/payslip`);
@@ -74,7 +74,7 @@ function Dashboard() {
                             <td>{item.amount}</td>
                             <td>{item.description}</td>
                             <td>
-                                <button className="view-button" onClick={() => handleActionButtonClick(item.id)}>
+                                <button className="view-button" onClick={() => handleButtonClick(item.id)}>
                                     View Payslip
                                 </button>
                             </td>

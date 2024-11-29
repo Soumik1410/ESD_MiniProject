@@ -12,6 +12,7 @@ create table employees (
 	title varchar(500),
 	photograph_path varchar(500),
 	department int,
+	password varchar(255) not null,
 	foreign key (department) references departments(department_id)
 );
 
